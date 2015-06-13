@@ -24,6 +24,7 @@ public class ProService {
 			e.printStackTrace();
 		}
 	}
+	// delete from db.user where id = ?;
 
 	public void openclass(Pro pro) throws SQLException {
 		Connection con = null;
