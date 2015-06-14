@@ -50,6 +50,29 @@ public class StudentService {
 		}
 		return rfc;
 	}
+	
+	public void delclass(String num) throws SQLException{
+		Connection con = null;
+		PreparedStatement stmt = null;
+		String use = "set SQL_SAFE_UPDATES=0";
+		String sql = "delete from sogongdb.rfc where no = ?";
+		try {
+
+			con = DriverManager.getConnection(editURL, ID, PASSWORD);
+			stmt = con.prepareStatement(use);
+			
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, num);
+			
+			stmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("ERROR");
+			e.printStackTrace();
+		} finally {
+			closeStream(con, stmt);
+		}
+	}
 
 	public ArrayList<Pro> rfcview() throws SQLException {
 		Connection con = null;

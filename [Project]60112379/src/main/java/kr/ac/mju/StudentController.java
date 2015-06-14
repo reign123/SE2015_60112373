@@ -29,6 +29,25 @@ public class StudentController {
 		return "rfcpage";
 	}
 	
+	@RequestMapping(value = "/StudentController/delclass", method = RequestMethod.GET)
+	public String viewdelPage(HttpServletRequest request) throws UnsupportedEncodingException, SQLException{
+		request.setCharacterEncoding("utf-8");
+		
+		ArrayList<RegistForCourse> rfc = null;
+		rfc = service.gradeview();
+		
+		request.setAttribute("rfc", rfc);
+		return "delclass";
+	}
+	
+	@RequestMapping(value = "/StudentController/delclassopen", method = RequestMethod.GET)
+	public String viewdel(HttpServletRequest request) throws UnsupportedEncodingException, SQLException{
+		request.setCharacterEncoding("utf-8");
+		
+		String num = request.getParameter("num");
+		service.delclass(num);
+		return "student";
+	}
 	
 	
 	@RequestMapping(value = "/StudentController/gradeview", method = RequestMethod.GET)

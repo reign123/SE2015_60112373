@@ -21,11 +21,11 @@
 			<td>己利</td>
 			<td>己利何咯</td>
 		</tr>
-		<tr>
 			<%
 				for (int i = 0; i < rfc.size(); i++) {
 					RegistForCourse tPro = rfc.get(i);
 			%>
+			<tr>
 			<td><%=tPro.getStudentname()%></td>
 			<td><%=tPro.getClassGrade()%></td>
 			<td><form action="${pageContext.request.contextPath}/ProController/grantgrade"
@@ -35,11 +35,10 @@
 				<input type = "text" name = "classgrade">
 				<button>己利 何咯</button>
 			</form>
-			</td>
+			</td></tr>
 			<%
 				}
 			%>
-		</tr>
 	</table>
 
 	<br />
